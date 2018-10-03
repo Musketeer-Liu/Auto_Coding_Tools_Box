@@ -1,0 +1,117 @@
+% Create the Excel header for the analysis data (Only operate for the very first time):
+%file = fopen('analysis.xls', 'w+');
+%fprintf(file, 'Sample \t');
+%fprintf(file, 'Average \t');
+%fprintf(file, 'STDEV \n');
+
+
+
+% ---- Pre Display Module ----
+% Setup the file system with relative method start with current and the Result Excel folder:
+file_path = './';
+results_path = [input('Please give the path of results.xls: ')]
+
+
+% Display all the files (not folders) in current folder before operation:
+disp('File List before this Operation: ');
+contains_before = dir(file_path);
+
+for k = 1: length(contains_before)
+
+if (contains_before(k).isdir)
+continue;
+end
+
+disp(contains_before(k).name);
+end
+
+
+% Create the Excel header for the analysis data:
+excel = fopen('analysis.xls', 'w+');
+fprintf(excel, 'Sample \t');
+fprintf(excel, 'Average \t');
+fprintf(excel, 'STDEV \n');
+
+
+% Input of batch_count: 
+batch_count = input('Please input total batch series count of analysis: ')
+
+
+% Input of each batch_name and test_count in each batch:
+for j = 1:batch_count
+batch_name = input(['Please inut batch name of batch ', num2str(j), ' out of ', num2str(batch_count), ' in total: '], 's')
+test_count = input(['Please input test number of ', batch_name, ' anaylysis: '])
+
+
+
+
+% ---- Real Automation Module ----
+% Input of each test_name:
+for i = 1:test_count
+test_name = [batch_name, '_', num2str(i), '.lsb_raw'];
+
+
+% Load, Process, and Calculate the Average and STDEV:
+test = fopen(test_name);
+data = fread(test);
+trim = data(1:2:end);
+avg = mean2(trim);
+std = std2(trim);
+matrix = vec2mat (trim, 400);
+
+
+% Write the analysis into the Analsis Excel:
+analysis = fopen('analysis.xls', 'a+');
+fprintf(analysis, [test_name, '\t']);
+fprintf(analysis, '%10.8f \t ', avg);
+fprintf(analysis, '%10.9f \t ', std);
+fprintf(analysis, '\r\n');
+fclose(analysis);
+
+
+% Plot Histogram and save the image in both .bmp and .fig format:
+hist = histogram(matrix);
+chart_bmp = [batch_name, '_hist_', num2str(i), '.bmp'];
+saveas(hist, chart_bmp);
+chart_fig = [batch_name, '_hist_', num2str(i), '.fig'];
+saveas(hist, chart_fig);
+end
+
+end
+
+
+
+
+% ---- Post Display Module ----
+% Display all the files (not folders) in current folder after operation:
+disp('File List after this Operation: ');
+
+contains_after = dir(file_path);
+
+for k = 1: length(contains_after)
+
+if (contains_after(k).isdir)
+continue;
+end
+
+disp(contains_after(k).name);
+end 
+
+
+% Calculate the average of Average (Column B) and STDEV (Column C) from the Analysis Excel and print it on the screen:
+result = 'analysis.xls';
+avg_col = xlsread(result, 'B:B');
+std_col = xlsread(result, 'C:C');
+% Another Approach
+%avg_col = xlsread(result, -1);
+%avg_col = xlsread(result, -1);
+avg_mean = mean(avg_col)
+std_mean = mean(std_col)
+
+
+% Update the final result into the Results Excel in the parent folder:
+results = fopen('../results.xls', 'a+);
+fprintf(results, [test_name, '\t']);
+fprintf(results, '%10.8f \t ', avg_mean);
+fprintf(results, '%10.9f \t ', avg_std);
+fprintf(results, '\r\n');
