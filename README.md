@@ -4,4 +4,6 @@ A collection of coding automation package as templates
 ## List
 Web Crawler: Mini Search Engine
 Image Analysis: Background Noise
-
+API Collections: Google Map, Foursquare...
+Office Collections: Contactbook...
+Web Collections: Email, Thread, HTTP
