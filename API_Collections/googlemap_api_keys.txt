@@ -1,0 +1,172 @@
+# Google Maps Key = AIzaSyDZHGnbFkjZcOEgYPpDqlO2YhBHKsNxhnE
+# Request from Webbroswer
+https://maps.googleapis.com/maps/api/geocode/json?address=San+Francisco&key=AIzaSyDZHGnbFkjZcOEgYPpDqlO2YhBHKsNxhnE# # # Response
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "San Francisco",
+               "short_name" : "SF",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "San Francisco County",
+               "short_name" : "San Francisco County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "California",
+               "short_name" : "CA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "San Francisco, CA, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 37.9298239,
+                  "lng" : -122.28178
+               },
+               "southwest" : {
+                  "lat" : 37.6398299,
+                  "lng" : -123.173825
+               }
+            },
+            "location" : {
+               "lat" : 37.7749295,
+               "lng" : -122.4194155
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.812,
+                  "lng" : -122.3482
+               },
+               "southwest" : {
+                  "lat" : 37.70339999999999,
+                  "lng" : -122.527
+               }
+            }
+         },
+         "place_id" : "ChIJIQBpAG2ahYAR_6128GcTUEo",
+         "types" : [ "locality", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
+
+
+# Foursquare Client ID = 4YUTC2USRBOIDLC4XGN45LQ1IOB3PMPSFYLOYUAG3QEB0T1V
+# Foursquare Client Secret = BZQA1EULBADIJEBSAZSNBNQ2UNZYMLUGWDWBXEHGXGBWRIKA
+# App address: https://api_test_01
+# Request from Postman with GET Method
+https://api.foursquare.com/v2/venues/search?ll=37.392971,-122.076044&client_id=4YUTC2USRBOIDLC4XGN45LQ1IOB3PMPSFYLOYUAG3QEB0T1V&client_secret=BZQA1EULBADIJEBSAZSNBNQ2UNZYMLUGWDWBXEHGXGBWRIKA&v=20170801&query='pizza'&limit=1
+# Response
+{
+    "meta": {
+        "code": 200,
+        "requestId": "5a6be340f594df190ec19048"
+    },
+    "response": {
+        "venues": [
+            {
+                "id": "4b020c0bf964a5206a4722e3",
+                "name": "Papa John's Pizza",
+                "contact": {
+                    "phone": "6509697272",
+                    "formattedPhone": "(650) 969-7272",
+                    "twitter": "papajohns",
+                    "facebook": "371362759726019",
+                    "facebookUsername": "papajohns",
+                    "facebookName": "Papa John's Pizza"
+                },
+                "location": {
+                    "address": "571 W El Camino Real",
+                    "crossStreet": "at Boranda Ave",
+                    "lat": 37.38436093866493,
+                    "lng": -122.08143775326981,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 37.38436093866493,
+                            "lng": -122.08143775326981
+                        }
+                    ],
+                    "distance": 1070,
+                    "postalCode": "94040",
+                    "cc": "US",
+                    "city": "Mountain View",
+                    "state": "CA",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "571 W El Camino Real (at Boranda Ave)",
+                        "Mountain View, CA 94040",
+                        "United States"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1ca941735",
+                        "name": "Pizza Place",
+                        "pluralName": "Pizza Places",
+                        "shortName": "Pizza",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/pizza_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "checkinsCount": 387,
+                    "usersCount": 241,
+                    "tipCount": 3
+                },
+                "url": "http://www.papajohns.com",
+                "hasMenu": true,
+                "delivery": {
+                    "id": "603412",
+                    "url": "http://www.grubhub.com/order_redir.jsp?custId=603412&affId=1131",
+                    "provider": {
+                        "name": "grubhub"
+                    }
+                },
+                "menu": {
+                    "type": "Menu",
+                    "label": "Menu",
+                    "anchor": "View Menu",
+                    "url": "https://foursquare.com/v/papa-johns-pizza/4b020c0bf964a5206a4722e3/menu",
+                    "mobileUrl": "https://foursquare.com/v/4b020c0bf964a5206a4722e3/device_menu"
+                },
+                "allowMenuUrlEdit": true,
+                "beenHere": {
+                    "lastCheckinExpiredAt": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "storeId": "3624",
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1517019968",
+                "venueChains": [
+                    {
+                        "id": "556e23e9a7c82e6b7252ce9f"
+                    }
+                ],
+                "hasPerk": false
+            }
+        ]
+    }
+}
