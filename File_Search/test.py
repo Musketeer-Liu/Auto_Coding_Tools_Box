@@ -12,9 +12,9 @@ def resolve_input():
 
 
 if __name__ == '__main__':
-    s = app.SearchFile()
+    SF = app.SearchFile()
 
     root_folder, keyword = resolve_input()
-    result = s.search_file(keyword=keyword, root_folder=root_folder)
-    s.plot_result(result=result)
+    result = SF.search_file(keyword=keyword, root_folder=root_folder)
+    SF.plot_result(result=result)
 

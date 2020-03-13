@@ -16,5 +16,5 @@ if __name__ == '__main__':
     root_folder, keyword, replacement = resolve_input()
 
 
-    r = app.RenameFile()
-    r.rename_files(root_folder, keyword, replacement)
+    RF = app.RenameFile()
+    RF.rename_files(root_folder, keyword, replacement)
